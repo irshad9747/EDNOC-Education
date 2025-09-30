@@ -1,0 +1,47 @@
+[
+  {
+    "id": "s1",
+    "type": "national",
+    "title": "Scholarships are financial support given to students to help with their education",
+    "description": "Overview scholarship description to give a quick idea.",
+    "award": "₹50,000 - hostel accommodation",
+    "eligibility": "Students studying undergraduate programs",
+    "deadline": "2025-09-20"
+  },
+  {
+    "id": "s2",
+    "type": "national",
+    "title": "Rural Student Support Scheme",
+    "description": "Support for students from rural India.",
+    "award": "₹50,000 - hostel accommodation",
+    "eligibility": "Family income below ₹2 Lakhs",
+    "deadline": "2025-10-05"
+  },
+  {
+    "id": "s3",
+    "type": "international",
+    "title": "National STEM Excellence Grant",
+    "description": "Grant for top STEM students.",
+    "award": "National STEM Excellence Grant",
+    "eligibility": "Students with a STEM background",
+    "deadline": "2025-11-30"
+  },
+  {
+    "id": "s4",
+    "type": "national",
+    "title": "Muskaan Scholarship",
+    "description": "Support for disadvantaged students.",
+    "award": "Support for students with family income less than ₹10 Lakhs",
+    "eligibility": "Scheduled caste & rural students",
+    "deadline": "2025-11-30"
+  },
+  {
+    "id": "s5",
+    "type": "national",
+    "title": "The HOPE Engineering Scholarship",
+    "description": "Engineering scholarship with special preferences.",
+    "award": "Family income less than 5 lac",
+    "eligibility": "Students in previous exams with merit",
+    "deadline": "2025-09-26"
+  }
+]
