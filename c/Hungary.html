@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Study in Hungary: UG, Master's & PhD</title>
+    <style>
+        /* Define Color Variables based on the provided Next.js classes */
+        :root {
+            --bg-light: #A4B3B4; 
+            --bg-dark: #859B9D;
+            --text-dark: #354A4B; /* Dark text color for hero */
+            --point-color: #A88BFF; /* Purple color for steps/highlights */
+            --link-color: #584af5; /* Link color used in the accordion */
+            --text-color-general: #333;
+            --border-grey: #d9d9d9;
+        }
+
+        /* Basic Reset and Typography */
+        body {
+            font-family: Arial, sans-serif; /* Simplified font-family */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color-general);
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 846px; /* Adjusted to fit the max width for the university list title */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: linear-gradient(to right, var(--bg-dark), var(--bg-light));
+            min-height: 500px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 80px 40px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .hero-content {
+            z-index: 10;
+            max-width: 430px;
+            text-align: left;
+        }
+
+        .hero-section h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: var(--text-dark);
+            line-height: 120%;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .hero-section h4 {
+            font-size: 28px;
+            color: var(--text-dark);
+            font-weight: normal;
+            line-height: 150%;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            color: black;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+
+        .join-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 8px 18px;
+            font-size: 15px;
+            border-radius: 50px;
+            background-color: var(--bg-light);
+            border: 1px solid var(--text-dark);
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .join-btn:hover {
+            background-color: var(--bg-dark);
+        }
+
+        .join-btn p {
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+        .join-btn .icon-bg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--text-dark);
+            padding: 7px;
+            border-radius: 50%;
+            color: var(--bg-light);
+            height: 12px;
+            width: 12px;
+        }
+        
+        .hero-image-placeholder {
+            /* Placeholder for the large Hungary image */
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40%;
+            height: 80%;
+            background-color: rgba(0, 0, 0, 0.1); /* Light gray overlay for visibility */
+            z-index: 5;
+            display: none; /* Hide on smaller screens */
+        }
+
+        @media (min-width: 768px) {
+            .hero-image-placeholder {
+                display: block;
+            }
+        }
+
+        /* --- Content Sections --- */
+        .content-section {
+            padding: 50px 0;
+        }
+        
+        .content-section-narrow {
+            max-width: 746px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .content-title {
+            font-size: 30px;
+            font-weight: bold;
+            color: var(--text-color-general);
+            margin-bottom: 20px;
+        }
+
+        /* --- Accordion Styling --- */
+        .accordion-item p {
+            margin: 0;
+        }
+        
+        .accordion-header {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            cursor: pointer;
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            margin: 0;
+        }
+
+        .header-content {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .header-text {
+            font-weight: bold;
+            font-size: 20px;
+            color: var(--text-color-general);
+            margin: 0;
+        }
+        
+        .chevron {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+            color: var(--text-color-general);
+        }
+
+        .accordion-header[aria-expanded="true"] .chevron {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+            padding: 0;
+            margin-top: -10px;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .accordion-content.open {
+            max-height: 2000px;
+            opacity: 1;
+            padding-bottom: 20px;
+        }
+        
+        .separator {
+            height: 1px;
+            background-color: var(--border-grey);
+            border: none;
+            margin: 0;
+        }
+
+        .accordion-content ul {
+            list-style: disc;
+            padding-left: 40px;
+            margin: 10px 0;
+        }
+        
+        .accordion-content li {
+            margin-bottom: 5px;
+        }
+
+        /* --- Bullet Points/Steps Styling --- */
+        .bullet-point-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 8px 0;
+        }
+        
+        .arrow-point {
+            color: var(--text-color-general);
+            margin-top: 5px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+
+        .step-number {
+            font-size: 30px;
+            font-weight: bold;
+            color: var(--point-color);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .step-text {
+            font-size: 20px;
+            font-weight: normal;
+            line-height: 1.4;
+            margin-top: 5px;
+        }
+        
+        .step-text a {
+            color: var(--link-color);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .apply-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 8px 18px;
+            font-size: 15px;
+            border-radius: 50px;
+            background-color: transparent;
+            border: 1px solid #111166;
+            color: #111166;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .apply-btn .icon-bg {
+            background-color: #111166;
+            color: #ffffff;
+            padding: 7px;
+            border-radius: 50%;
+            height: 12px;
+            width: 12px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="main-content-wrapper">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Study in Hungary:</h1>
+                <h4>UG, Master's & PhD</h4>
+                <p>Hungary is offering **fully funded scholarships** for international students under the **Stipendium Hungaricum** program for the academic year 2025/26. Study at prestigious Hungarian universities with full financial support.</p>
+                <a target="_blank" rel="noopener noreferrer" class="join-btn" href="https://wa.me/919746202023">
+                    <p>Join Now</p>
+                    <div class="icon-bg">→</div>
+                </a>
+            </div>
+            <div class="hero-image-placeholder" title="Stylized image of Hungary/Budapest landmarks"></div>
+        </div>
+
+        <div class="container content-section" style="padding-bottom: 10px;">
+            <h1 class="content-title" style="margin-top: 20px;">Universities in the Hungary</h1>
+            </div>
+
+        <div class="content-section-narrow" style="padding-top: 10px;">
+            <h1 class="content-title">Stipendium Hungaricum Scholarship Program</h1>
+            
+            <div class="accordion-container" style="margin-top: 40px;">
+                
+                <div class="accordion-item">
+                    <button class="accordion-header" role="button" aria-expanded="true" onclick="toggleAccordion(this)">
+                        <div class="header-content">
+                            <span class="arrow-point">▶</span>
+                            <p class="header-text">About the Program</p>
+                        </div>
+                        <span class="chevron">^</span>
+                    </button>
+                    <div id="accordion-content-about-the-program" class="accordion-content open">
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <p>The Stipendium Hungaricum is Hungary's flagship scholarship initiative, launched by the Hungarian Government to attract top international talent. You can apply for Bachelor's, Master's, and PhD degrees at more than 30 universities in a wide range of fields.</p>
+                            <p>Applications are centralized through the <a target="_blank" rel="noopener noreferrer" href="https://stipendiumhungaricum.hu/">stipendiumhungaricum.hu</a> portal.</p>
+                        </div>
+                    </div>
+                    <hr class="separator"/>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" role="button" aria-expanded="false" onclick="toggleAccordion(this)">
+                        <div class="header-content">
+                            <span class="arrow-point">▶</span>
+                            <p class="header-text">What the Scholarship Covers</p>
+                        </div>
+                        <span class="chevron">v</span>
+                    </button>
+                    <div id="accordion-content-what-the-scholarship-covers" class="accordion-content">
+                        <ul>
+                            <li>**Full tuition fee waiver**</li>
+                            <li>**Monthly stipend**
+                                <ul>
+                                    <li>UG: HUF 43,700</li>
+                                    <li>Master's: HUF 43,700</li>
+                                    <li>PhD: HUF 140,000–180,000</li>
+                                </ul>
+                            </li>
+                            <li>Free accommodation or housing allowance</li>
+                            <li>Health insurance</li>
+                            <li>Visa support</li>
+                        </ul>
+                    </div>
+                    <hr class="separator"/>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header" role="button" aria-expanded="false" onclick="toggleAccordion(this)">
+                        <div class="header-content">
+                            <span class="arrow-point">▶</span>
+                            <p class="header-text">Top Universities</p>
+                        </div>
+                        <span class="chevron">v</span>
+                    </button>
+                    <div id="accordion-content-top-universities" class="accordion-content">
+                        <ul>
+                            <li>Eötvös Loránd University</li>
+                            <li>University of Debrecen</li>
+                            <li>Budapest University of Technology and Economics</li>
+                            <li>University of Szeged</li>
+                            <li>Corvinus University of Budapest</li>
+                        </ul>
+                    </div>
+                    <hr class="separator"/>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" role="button" aria-expanded="false" onclick="toggleAccordion(this)">
+                        <div class="header-content">
+                            <span class="arrow-point">▶</span>
+                            <p class="header-text">Fields of Study</p>
+                        </div>
+                        <span class="chevron">v</span>
+                    </button>
+                    <div id="accordion-content-fields-of-study" class="accordion-content">
+                        <ul>
+                            <li>Engineering &amp; IT</li>
+                            <li>Medicine &amp; Health Sciences</li>
+                            <li>Business &amp; Economics</li>
+                            <li>Agriculture</li>
+                            <li>Humanities &amp; Social Sciences</li>
+                            <li>Natural Sciences</li>
+                            <li>Arts &amp; Music</li>
+                        </ul>
+                    </div>
+                    <hr class="separator"/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content-section-narrow" style="padding-top: 0;">
+            <h1 class="content-title" style="margin-top: 0;">Who Can Apply?</h1>
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 30px;">
+                <div class="bullet-point-item">
+                    <span class="arrow-point">▶</span>
+                    <p class="step-text" style="margin-top: 0; font-size: 18px;">Applicants from eligible partner countries</p>
+                </div>
+                <div class="bullet-point-item">
+                    <span class="arrow-point">▶</span>
+                    <p class="step-text" style="margin-top: 0; font-size: 18px;">Age 18 or older</p>
+                </div>
+                <div class="bullet-point-item">
+                    <span class="arrow-point">▶</span>
+                    <p class="step-text" style="margin-top: 0; font-size: 18px;">Valid passport</p>
+                </div>
+                <div class="bullet-point-item">
+                    <span class="arrow-point">▶</span>
+                    <p class="step-text" style="margin-top: 0; font-size: 18px;">High school/Bachelor’s/Master’s degree (as applicable)</p>
+                </div>
+                <div class="bullet-point-item">
+                    <span class="arrow-point">▶</span>
+                    <p class="step-text" style="margin-top: 0; font-size: 18px;">English proficiency (IELTS not always required)</p>
+                </div>
+                <div class="bullet-point-item">
+                    <span class="arrow-point">▶</span>
+                    <p class="step-text" style="margin-top: 0; font-size: 18px;">Medical certificate</p>
+                </div>
+                <div class="bullet-point-item">
+                    <span class="arrow-point">▶</span>
+                    <p class="step-text" style="margin-top: 0; font-size: 18px;">Motivation letter</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section-narrow" style="padding-top: 0; padding-bottom: 20px;">
+            <h1 class="content-title" style="margin-top: 0;">How to Apply</h1>
+            <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 30px;">
+                <div class="step-item" style="margin-top: 0;">
+                    <p class="step-number">01</p>
+                    <p class="step-text">Register at <a target="_blank" rel="noopener noreferrer" href="https://stipendiumhungaricum.hu/">stipendiumhungaricum.hu</a></p>
+                </div>
+                <div class="step-item">
+                    <p class="step-number">02</p>
+                    <p class="step-text">Choose program and university</p>
+                </div>
+                <div class="step-item">
+                    <p class="step-number">03</p>
+                    <p class="step-text">Upload all required documents</p>
+                </div>
+                <div class="step-item">
+                    <p class="step-number">04</p>
+                    <p class="step-text">Submit the application before deadline</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section-narrow" style="padding-top: 20px; text-align: center;">
+            <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; justify-content: center; max-width: 654px; margin: 0 auto;">
+                <div style="width: 100%; height: 200px; background-color: #f0f0f0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-style: italic; color: #999;">
+                    [Placeholder for Dream.png Image]
+                </div>
+                <h4 style="font-size: 30px; font-weight: bold; margin: 0;">Begin Your Hungary Education Journey</h4>
+                <p style="font-size: 18px; margin: 0;">Experience Europe through world-class education and full financial support in Hungary. With a strong academic reputation and vibrant student life, Hungary awaits you.</p>
+                <p style="font-size: 18px; margin: 0;">**Apply now and secure your place for 2025!**</p>
+            </div>
+            <a target="_blank" rel="noopener noreferrer" class="apply-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc5tGsUaquZRsc3p2IfeImp3QilVl86eY468dYj0vRNfYuHOQ/viewform?usp=sharing&amp;ouid=108157845308190690808">
+                <p>Apply Now</p>
+                <div class="icon-bg">→</div>
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        // JavaScript for Accordion Functionality
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            
+            button.setAttribute('aria-expanded', !isExpanded);
+            content.classList.toggle('open');
+            button.querySelector('.chevron').textContent = isExpanded ? 'v' : '^';
+
+            if (!isExpanded) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = null;
+            }
+
+            // Optional: Close all other open sections
+            document.querySelectorAll('.accordion-header[aria-expanded="true"]').forEach(otherButton => {
+                if (otherButton !== button) {
+                    otherButton.setAttribute('aria-expanded', 'false');
+                    otherButton.querySelector('.chevron').textContent = 'v';
+                    const otherContent = otherButton.nextElementSibling;
+                    otherContent.classList.remove('open');
+                    otherContent.style.maxHeight = null;
+                }
+            });
+        }
+
+        // Initialize first item to be open on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstHeader = document.querySelector('.accordion-header[aria-expanded="true"]');
+            if (firstHeader) {
+                const firstContent = firstHeader.nextElementSibling;
+                // Timeout is needed for the browser to correctly calculate scrollHeight if there are complex dynamic elements
+                setTimeout(() => {
+                    firstContent.style.maxHeight = firstContent.scrollHeight + "px";
+                }, 0); 
+                firstHeader.querySelector('.chevron').textContent = '^';
+            }
+        });
+    </script>
+</body>
+</html>

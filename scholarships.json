@@ -22,7 +22,7 @@
     "type": "international",
     "title": "National STEM Excellence Grant",
     "description": "Grant for top STEM students.",
-    "award": "National STEM Excellence Grant",
+    "award": "Full tuition waiver + stipend",
     "eligibility": "Students with a STEM background",
     "deadline": "2025-11-30"
   },
@@ -40,8 +40,71 @@
     "type": "national",
     "title": "The HOPE Engineering Scholarship",
     "description": "Engineering scholarship with special preferences.",
-    "award": "Family income less than 5 lac",
-    "eligibility": "Students in previous exams with merit",
+    "award": "Up to ₹75,000 annually",
+    "eligibility": "Engineering students with merit and family income less than ₹5 Lakhs",
     "deadline": "2025-09-26"
+  },
+  {
+    "id": "s6",
+    "type": "international",
+    "title": "Global Leaders Merit Award",
+    "description": "For outstanding leadership and academic merit.",
+    "award": "Full tuition + mentorship opportunities",
+    "eligibility": "Undergraduate or postgraduate international students",
+    "deadline": "2025-12-15"
+  },
+  {
+    "id": "s7",
+    "type": "international",
+    "title": "International Cultural Exchange Scholarship",
+    "description": "Promotes cross-cultural education exchange.",
+    "award": "Partial tuition + travel grant",
+    "eligibility": "Students applying for exchange programs abroad",
+    "deadline": "2025-08-30"
+  },
+  {
+    "id": "s8",
+    "type": "international",
+    "title": "Future Innovators Research Grant",
+    "description": "Funding for students contributing to AI, biotech, and green tech.",
+    "award": "Research grant up to $20,000",
+    "eligibility": "Graduate students in innovation-focused programs",
+    "deadline": "2025-12-01"
+  },
+  {
+    "id": "s9",
+    "type": "national",
+    "title": "Shiksha Sahyog National Grant",
+    "description": "Financial support for economically weaker section students.",
+    "award": "₹40,000 per year",
+    "eligibility": "Family income below ₹3 Lakhs",
+    "deadline": "2025-10-20"
+  },
+  {
+    "id": "s10",
+    "type": "national",
+    "title": "Dr. A.P.J. Abdul Kalam National Talent Award",
+    "description": "Encourages innovation and creativity in students.",
+    "award": "₹1,00,000 cash prize + certificate",
+    "eligibility": "Students with innovative projects at school/college level",
+    "deadline": "2025-11-10"
+  },
+  {
+    "id": "s11",
+    "type": "national",
+    "title": "Women in Science Scholarship",
+    "description": "Empowering women to pursue careers in STEM.",
+    "award": "₹60,000 per year",
+    "eligibility": "Female students pursuing STEM programs",
+    "deadline": "2025-12-05"
+  },
+  {
+    "id": "s12",
+    "type": "international",
+    "title": "Oxford Global Achievers Scholarship",
+    "description": "Scholarship for high-achieving students admitted to Oxford programs.",
+    "award": "Full tuition + living expenses",
+    "eligibility": "Undergraduate & postgraduate international students",
+    "deadline": "2025-09-15"
   }
 ]
