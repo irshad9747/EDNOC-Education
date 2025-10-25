@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://YOUR_GITHUB_USERNAME.github.io/ednoc-education",
+  "homepage": "https://irshad9747.github.io/EDNOC-Education",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
